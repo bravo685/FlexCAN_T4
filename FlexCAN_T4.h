@@ -468,9 +468,9 @@ FCTP_CLASS class FlexCAN_T4 : public FlexCAN_T4_Base {
     void FLEXCAN_EnterFreezeMode();
     uint32_t getRXQueueCount() { return rxBuffer.size(); }
     uint32_t getTXQueueCount() { return txBuffer.size(); }
-
-  private:
     void setMBFilterProcessing(FLEXCAN_MAILBOX mb_num, uint32_t filter_id, uint32_t calculated_mask);
+  
+  private:
     void writeTxMailbox(uint8_t mb_num, const CAN_message_t &msg);
     uint64_t readIMASK();// { return (((uint64_t)FLEXCANb_IMASK2(_bus) << 32) | FLEXCANb_IMASK1(_bus)); }
     void flexcan_interrupt();
